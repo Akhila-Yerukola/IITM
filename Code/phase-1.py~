@@ -1,0 +1,12 @@
+import os
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+
+input_path=os.path.join(os.path.dirname(__file__), '../Cases/Text1pdf.pdf')
+output_path=os.path.join(os.path.dirname(__file__), '../Cases/Text1.txt')
+os.system(("pdftotext %s %s") %( input_path , output_path))
+input_file=open(output_path,'r')
+#print input_file.read()
+
+tag_words=pos_tag(word_tokenize(input_file.read()))
+print tag_words
